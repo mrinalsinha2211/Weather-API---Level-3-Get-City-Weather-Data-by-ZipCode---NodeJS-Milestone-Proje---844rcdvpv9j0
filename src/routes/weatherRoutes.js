@@ -42,7 +42,7 @@ router.get('/city/zipcode/:code', async (req, res) => {
    res.status(200).json({
     status: "success",
      message: "Weather data retrieved",
-    Data: showData,
+    Data: showData.forecast,
    });  
   }
 catch{
