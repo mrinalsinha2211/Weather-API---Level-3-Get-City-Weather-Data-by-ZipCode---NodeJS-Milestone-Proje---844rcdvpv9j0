@@ -48,7 +48,7 @@ async function saveDataToDatabase(data) {
 
 
 // Level 3: Get City Weather Data by ZipCode
-async function getWeatherDataByZipCode(zipCode) {
+// async function getWeatherDataByZipCode(zipCode) {
    // TODO: Implement this function
   // try{
   //   const data=await getDataFromDatabase();
@@ -70,10 +70,31 @@ async function getWeatherDataByZipCode(zipCode) {
   //     error: 'ZipCode not found',
   //   };
   //  }
-    const zipCode = req.params.code;
+//     const zipCode = req.params.code;
+//   const data = await getDataFromDatabase();
+
+//   const cityData = data.find((city) => city.zipCode.toLowerCase() === zipCode.toLowerCase());
+
+//   if (cityData) {
+//     res.status(200).json({
+//       status: 'success',
+//       message: 'Weather data retrieved',
+//       data: cityData.forecast,
+//     });
+//   } else {
+//     res.status(404).json({
+//       status: 'error',
+//       message: 'ZipCode not found',
+//       error: 'ZipCode not found',
+//     });
+//   }
+
+// }
+async function getWeatherDataByZipCode(req, res) {
+  const zipCode = req.params.code;
   const data = await getDataFromDatabase();
 
-  const cityData = data.find((city) => city.zipCode.toLowerCase() === zipCode.toLowerCase());
+  const cityData = data.find((city) => city.zipcode === zipCode);
 
   if (cityData) {
     res.status(200).json({
@@ -88,9 +109,7 @@ async function getWeatherDataByZipCode(zipCode) {
       error: 'ZipCode not found',
     });
   }
-
 }
-
 
 
 module.exports = {
