@@ -52,7 +52,7 @@ async function getWeatherDataByZipCode(zipCode) {
    // TODO: Implement this function
   // try{
   //   const data=await getDataFromDatabase();
-  //   const zipcode=data.find((zip)=>zip.zipCode.toLowercase()===zipCode.toLowercase());
+  //   const zipcode=data.find((zip)=>zip.zipCode.toLowerCase()===zipCode.toLowerCase());
   //   if(zipcode){
   //     return {
   //       status: 'success',
