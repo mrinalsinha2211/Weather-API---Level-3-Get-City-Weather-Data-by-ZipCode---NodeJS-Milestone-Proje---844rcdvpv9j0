@@ -73,7 +73,7 @@ async function getWeatherDataByZipCode(zipCode) {
     const zipCode = req.params.code;
   const data = await getDataFromDatabase();
 
-  const cityData = data.find((city) => city.zipCode.toLowercase() === zipCode.toLowercase());
+  const cityData = data.find((city) => city.zipCode.toLowerCase() === zipCode.toLowerCase());
 
   if (cityData) {
     res.status(200).json({
